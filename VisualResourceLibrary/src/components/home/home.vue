@@ -1,0 +1,452 @@
+<style scoped>
+    .home-screen {
+            position: relative;
+            transform: translateY(-60px);
+        }
+        .home-screen img {
+            max-width: 100%;
+            min-height: 100%;
+        }
+        .home-screen .bg {
+            background-image: url("../../../static/Images/new/bg.jpg");
+            background-size: cover;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #8b8b8b;
+            left: 0;
+            top: 0;
+        }
+        .home-screen .mask {
+            background-size: cover;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #3b3b3b;
+            opacity: 0.5;
+            left: 0;
+            top: 0;
+        }
+
+        .content,
+        .flow,
+        .cases,
+        .tools {
+            position: relative;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .content {
+            min-height: 700px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+            color: white;
+        }
+        .content .title {
+            font-size: 3.8rem;
+            font-family: Georgia, sans-serif, serif;
+        }
+        .content .sub-title {
+            margin: 1rem;
+            display: block;
+            font-size: 1.6rem;
+            font-family: sans-serif, serif;
+        }
+        .content .desc {
+            margin: 1rem;
+            font-size: 1.2rem;
+            display: block;
+        }
+        .content .home-start-btn {
+            margin: 1rem;
+            font-size: 1rem;
+            border-radius: 6px;
+        }
+
+        .blue {
+            border-color: #5cadff;
+            color: #5cadff;
+        }
+
+        .green {
+            border-color: #19be6b;
+            color: #19be6b;
+        }
+
+        .yellow {
+            border-color: #ff9900;
+            color: #ff9900;
+        }
+
+        .tools {
+            padding: 2rem 0 5rem 0;
+        }
+        .tools .tools-title {
+            display: block;
+            font-family: Georgia, sans-serif, serif;
+            font-size: 2.5rem;
+            padding: 1rem 0 3rem 0;
+        }
+        .tools .tools-container {
+            min-height: 350px;
+        }
+        .tools .tools-container .card {
+            border-top-right-radius: 10px;
+            position: relative;
+            border: solid 1px #161a1d44;
+            overflow: hidden;
+            text-align: left;
+        }
+        .tools .tools-container .card .bg {
+            display: block;
+            width: 100%;
+            height: 150px;
+            background-size: cover;
+            position: relative;
+            left: 0;
+            right: 0;
+        }
+        .tools .tools-container .card .img-map {
+            background-image: url("../../../static/Images/new/map.jpg");
+        }
+        .tools .tools-container .card .img-chart {
+            background-image: url("../../../static/Images/new/chart.jpg");
+        }
+        .tools .tools-container .card .img-video {
+            background-image: url("../../../static/Images/new/video.jpg");
+        }
+        .tools .tools-container .card .img-edit {
+            background-image: url("../../../static/Images/new/edit.jpg");
+        }
+        .tools .tools-container .card .img-todo {
+            background-image: url("../../../static/Images/new/notes.jpg");
+        }
+        .tools .tools-container .card .card-title {
+            display: block;
+            font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+            padding: 1rem 1rem;
+            font-size: 1.4rem;
+        }
+        .tools .tools-container .card .card-desc {
+            display: block;
+            padding: 0.5rem 1rem;
+        }
+        .tools .tools-container .card a {
+            display: inline-block;
+            margin: 2rem 1rem;
+        }
+
+        .cases .case-title {
+            display: block;
+            font-family: Georgia, sans-serif, serif;
+            font-size: 2.5rem;
+            padding: 1rem 0 3rem 0;
+        }
+        .cases .case-content {
+            min-height: 500px;
+        }
+        .cases .case-content .case-item {
+            min-height: inherit;
+            position: relative;
+        }
+        .cases .case-content .case-item .case-img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+        }
+        .cases .case-content .case-item .img1 {
+            background-image: url("../../../static/Images/new/planet.jpg");
+        }
+        .cases .case-content .case-item .img2 {
+            background-image: url("../../../static/Images/new/fire.jpg");
+        }
+        .cases .case-content .case-item .img3 {
+            background-image: url("../../../static/Images/new/leaft1.jpg");
+        }
+        .cases .case-content .case-item .mask .bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #161a1d;
+            opacity: 0.5;
+            color: white;
+            transition: all 0.6s 0s cubic-bezier(0.02, 0.67, 0.45, 0.93);
+        }
+        .cases .case-content .case-item .mask .bg:hover {
+            background-color: #5cadff;
+            opacity: 0.9;
+        }
+        .cases .case-content .case-item .mask .bg:hover + .case-text {
+            opacity: 1;
+            transform: translate3d(-50%, -60%, 0);
+        }
+        .cases .case-content .case-item .mask .case-text {
+            font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+            transition: all 0.6s 0s cubic-bezier(0.02, 0.67, 0.45, 0.93);
+            pointer-events: none;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate3d(-50%, -50%, 0);
+            color: white;
+            opacity: 0.7;
+        }
+        .cases .case-content .case-item .mask .case-text i {
+            font-size: 6rem;
+        }
+        .cases .case-content .case-item .mask .case-text div {
+            font-size: 1.2rem;
+        }
+
+        .flow {
+            margin: 5rem auto;
+            width: 80%;
+        }
+        .flow .flow-content .flow-title {
+            font-family: Georgia, sans-serif, serif;
+            font-size: 2.5rem;
+            padding: 1rem 0 3rem 0;
+        }
+        .flow .flow-content .flow-line {
+            background: linear-gradient(left, #5cadff, #5cadff);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate3d(-50%, -50%, 0);
+            width: 100%;
+            height: 0.4rem;
+        }
+        .flow .flow-content .flow-item-container {
+            margin: 5rem 0 0;
+            display: flex;
+            justify-content: space-around;
+        }
+        .flow .flow-content .flow-item-container .flow-item {
+            z-index: 10;
+            display: inline-block;
+            vertical-align: middle;
+            color: #161a1dc0;
+        }
+        .flow .flow-content .flow-item-container .flow-item .flow-item-icon {
+            display: inline-block;
+            padding: 2rem 3rem;
+            font-size: 4.5rem;
+            position: relative;
+        }
+        .flow .flow-content .flow-item-container .flow-item .flow-item-icon:hover .flow-item-bg {
+            transform: translate3d(-50%, -55%, 0);
+        }
+        .flow .flow-content .flow-item-container .flow-item .flow-item-icon .flow-item-bg {
+            transition: all 0.4s 0s cubic-bezier(0.02, 0.67, 0.45, 0.93);
+            display: inline-block;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate3d(-50%, -50%, 0);
+            width: 100%;
+            height: 100%;
+            border: solid 1px #5cadff;
+            border-radius: 10px;
+            z-index: -1;
+        }
+        .flow .flow-content .flow-item-container .flow-item .flow-item-text {
+            padding: 1rem 0;
+            font-size: 1.2rem;
+            display: block;
+            font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+        }
+        [v-cloak]{
+            display: none;
+        }
+</style>
+<template>
+    <div id="vueBody" v-cloak style="min-width: 1100px">
+        <div class="home-screen" >
+            <div class="bg" ></div>
+            <div class="mask"></div>
+            <div class="content">
+                <div>
+                    <span class="title">Spatial Data Visualization - Course Featured Resource Library</span>
+                    <span class="sub-title">Images & Videos Visualization | Symbol & Material library | Online visualization | Courses & Tools & Literature</span>
+                    <span class="desc">The platform provides visualization of various spatial data resources, where researchers can exchange their views,<br /> collide their thoughts,and establish their collaboration.</span>
+                    <i-button class="home-start-btn" @click="start">Try it now</i-button>
+                </div>
+            </div>
+        </div>
+        <div class="main-container">
+            <div class="flow">
+                <div class="flow-content">
+                    <span class="flow-title">Solve a Problem Collaboratively</span>
+                    <div class="flow-item-container">
+                <span class="flow-item" @click="toRegister">
+                <span class="flow-item-icon blue">
+                    <span class="flow-item-bg"></span>
+                    <Icon type="md-build" ></Icon>
+                </span>
+                <span class="flow-item-text">Register as a participant</span>
+                </span>
+                <span class="flow-item" @click="toCreate">
+                <span class="flow-item-icon yellow">
+                    <span class="flow-item-bg"></span>
+                    <Icon type="md-search" ></Icon>
+                </span>
+                <span class="flow-item-text">Create or join a project</span>
+                </span>
+                <span class="flow-item" @click="toTeam">
+                <span class="flow-item-icon green">
+                    <span class="flow-item-bg"></span>
+                    <Icon type="md-share" ></Icon>
+                </span>
+                <span class="flow-item-text">Communicate ideas in a team</span>
+
+                </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cases">
+                <span class="case-title">Demo and Popular Projects</span>
+                <Row class="case-content">
+                    <i-col class="case-item" span="8">
+                        <div class="case-img img1"></div>
+                        <div class="mask" @click="toDemo">
+                            <div class="bg"></div>
+                            <div class="case-text">
+                                <Icon type="md-planet"></Icon>
+                            <div>Planet</div>
+                        </div>
+                        </div>
+                    </i-col>
+                    <i-col class="case-item" span="8">
+                        <div class="case-img img2"></div>
+                        <div class="mask" @click="toDemo">
+                            <div class="bg"></div>
+                            <div class="case-text">
+                                <Icon type="md-flame" ></Icon>
+                                <div>Fire</div>
+                            </div>
+                        </div>
+                    </i-col>
+                    <i-col class="case-item" span="8" >
+                        <div class="case-img img3"></div>
+                        <div class="mask" @click="toDemo">
+                            <div class="bg"></div>
+                            <div class="case-text">
+                                <Icon type="md-leaf" ></Icon>
+                                <div>Forest</div>
+                            </div>
+                        </div>
+                    </i-col>
+                </Row>
+            </div>
+
+            <div class="tools">
+                <span class="tools-title">Explore More</span>
+                <Row class="tools-container" type="flex" justify="space-around">
+                    <i-col class="card" span="4">
+                        <span class="bg img-map"></span>
+                        <span class="card-title">Map</span>
+                        <span class="card-desc">The tool for visualizing geospatial data</span>
+                    <a href="#">Learn More</a>
+                    </i-col>
+                    <i-col class="card" span="4">
+                        <span class="bg img-chart"></span>
+                        <span class="card-title">Chart</span>
+                        <span class="card-desc">Give a deeper understanding for table data</span>
+                        <a href="#">Learn More</a>
+                    </i-col>
+
+                    <i-col class="card" span="4">
+                        <span class="bg img-video"></span>
+                        <span class="card-title">Video</span>
+                        <span class="card-desc">One-stop Video and Text Chat Tool for convenient communication</span>
+                        <a href="#">Learn More</a>
+                    </i-col>
+
+                    <i-col class="card" span="4">
+                        <span class="bg img-edit"></span>
+                        <span class="card-title">Edit</span>
+                        <span class="card-desc">Deeply tapping the potential value of resources</span>
+                        <a href="#">Learn More</a>
+                    </i-col>
+
+                    <i-col class="card" span="4">
+                        <span class="bg img-todo"></span>
+                        <span class="card-title">TODO</span>
+                        <span class="card-desc">Research goes on and needs to keep moving forward.</span>
+                        <a href="#">Learn More</a>
+                    </i-col>
+
+                </Row>
+            </div>
+        </div>
+        <div th:replace="navigation::commonFooter"></div>
+    </div>
+</template>
+<script>
+export default {
+    data() {
+        return{
+            userInfo:[],
+        }        
+    },
+    created(){
+        var userInfo = {
+            userState: false,
+            name: 'Visitor',
+            userId: '',
+            avatar: ''
+        };
+        sessionStorage.setItem('userInfo', JSON.stringify(userInfo));
+        // $.ajax({
+        //     url: "/GeoProblemSolving/user/state",
+        //     type: "POST",
+        //     async: false,
+        //     success: data=> {
+        //         if (data) {
+        //             data.userState = true;
+        //             sessionStorage.setItem('userInfo', JSON.stringify(data));
+        //         } else {
+        //             console.log("Not logged in");
+        //         }
+        //     },
+        //     error: function (err) {
+        //         console.log("Get user info fail.");
+        //     }
+        // });
+    },
+    mounted() {
+        this.userInfo = JSON.parse(sessionStorage.getItem("userInfo"));
+        window.onresize = () => {
+            return (() => {
+                this.$refs.navigationEl.identityMenuCSS();
+            })()
+        }
+    },
+    methods: {
+        start() {
+            if (this.userInfo.userState) {
+                window.location.href = "/projectList"
+            } else {
+                window.location.href = "/login"
+            }
+        },
+        toRegister(){
+            window.location.href = "/register"
+        },
+        toCreate(){
+             window.location.href = "/newProject"
+        },
+        toTeam(){
+            window.location.href = "/projectList"
+        },
+        toDemo(){
+            window.location.href = "/projectList"
+        }
+    }
+}
+</script>
