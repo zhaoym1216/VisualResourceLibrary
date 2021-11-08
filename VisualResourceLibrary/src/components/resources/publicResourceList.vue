@@ -72,17 +72,19 @@
               <template v-if="$store.getters.userState">
                 <Col span="22" offset="1">
                   <Table :columns="resourceColumn" :data="showList" border no-data-text="No data">
-                    <template slot-scope="{ row, index }" slot="action" v-show="showList.length>0">
-                      <a
-                        :href="showList[index].address"
-                        :download="showList[index].name"
-                        title="Download"
-                      >
-                        <Icon type="md-download" :size="20" color="yellowgreen" />
-                      </a>
-                      <a @click="show(index)" style="margin-left: 10px" title="Preview">
-                        <Icon type="md-eye" :size="20" color="orange" />
-                      </a>
+                    <template slot-scope="{ index }" slot="action" >
+                      <div v-show="showList.length>0">
+                        <a
+                          :href="showList[index].address"
+                          :download="showList[index].name"
+                          title="Download"
+                        >
+                          <Icon type="md-download" :size="20" color="yellowgreen" />
+                        </a>
+                        <a @click="show(index)" style="margin-left: 10px" title="Preview">
+                          <Icon type="md-eye" :size="20" color="orange" />
+                        </a>
+                      </div>
                     </template>
                   </Table>
                 </Col>
@@ -90,13 +92,15 @@
               <template v-else>
                 <Col span="22" offset="1">
                   <Table :columns="resourceColumn" :data="showList" border size="small" no-data-text="No data">
-                    <template slot-scope="{ row, index }" slot="action" v-show="showList.length>0">
-                      <a title="Please download after login">
-                        <Icon type="md-download" :size="20" color="gray" />
-                      </a>
-                      <a style="margin-left: 10px" title="Please preview after login">
-                        <Icon type="md-eye" :size="20" color="gray" />
-                      </a>
+                    <template slot-scope="{  }" slot="action" >
+                      <div v-show="showList.length>0">
+                        <a title="Please download after login">
+                          <Icon type="md-download" :size="20" color="gray" />
+                        </a>
+                        <a style="margin-left: 10px" title="Please preview after login">
+                          <Icon type="md-eye" :size="20" color="gray" />
+                        </a>
+                      </div>
                     </template>
                   </Table>
                 </Col>

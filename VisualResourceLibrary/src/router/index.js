@@ -31,6 +31,12 @@ Vue.use(Router);
             require(["@/components/permissionManager"], resolve)
         },
         {
+          path: "projectList",
+          name: "projectList",
+          component: resolve =>
+            require(["@/components/project/projectList"], resolve)
+        },
+        {
           path: "newPersonalPage",
           name: "newPersonalPage",
           component: resolve =>
